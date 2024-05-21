@@ -16,7 +16,7 @@ class Solution:
         '''
         # torch.reshape() will be useful - check out the documentation
         M, N = to_reshape.size()
-        return torch.reshape(to_reshape, ((M * N // 2), 2))
+        return torch.reshape(to_reshape, (-1, 2))
 
     def average(self, to_avg: TensorType[float]) -> TensorType[float]:
         '''
