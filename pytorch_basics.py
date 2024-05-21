@@ -16,25 +16,25 @@ class Solution:
         '''
         # torch.reshape() will be useful - check out the documentation
         M, N = to_reshape.size()
-        return torch.reshape(to_reshape, (-1, 2))
+        return torch.round(torch.reshape(to_reshape, (-1, 2)), decimals=4)
 
     def average(self, to_avg: TensorType[float]) -> TensorType[float]:
         '''
             2. Find the average of every column in a tensor.
         '''
         # torch.mean() will be useful - check out the documentation
-        return torch.mean(to_avg, 0)
+        return torch.round(torch.mean(to_avg, 0), decimals=4)
 
     def concatenate(self, cat_one: TensorType[float], cat_two: TensorType[float]) -> TensorType[float]:
         '''
             3. Combine an M * N tensor and a M * M tensor into a M * (M + N) tensor.
         '''
         # torch.cat() will be useful - check out the documentation
-        return torch.cat((cat_one, cat_two), dim=1)
+        return torch.round(torch.cat((cat_one, cat_two), dim=1), decimals=4)
 
     def get_loss(self, prediction: TensorType[float], target: TensorType[float]) -> TensorType[float]:
         '''
             4. Calculate the mean squared error loss between a prediction and target tensor.
         '''
         # torch.nn.functional.mse_loss() will be useful - check out the documentation
-        return torch.nn.functional.mse_loss(prediction, target)
+        return torch.round(torch.nn.functional.mse_loss(prediction, target), decimals=4)
